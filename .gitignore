@@ -17,3 +17,6 @@
 
 # Ignore todo
 todo.md
+
+# Ignore application configuration
+/config/application.yml

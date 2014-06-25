@@ -50,3 +50,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use httparty to connect to Parse REST API
+gem 'httparty', '~> 0.13.1'
+
+# Use Figaro to hide secrets
+gem 'figaro'

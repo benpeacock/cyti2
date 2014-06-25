@@ -11,6 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140624202023) do
+
+  create_table "events", force: true do |t|
+    t.string   "address"
+    t.date     "endDate"
+    t.string   "imageThumbUrl"
+    t.string   "moreInfo"
+    t.text     "shortDescription"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

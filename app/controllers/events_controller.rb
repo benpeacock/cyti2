@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @event = Event.find_by_id('kknBHqfwUo')
   end
 
   # GET /events/1
