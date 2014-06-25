@@ -1,34 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<%= @event.inspect %>
+<p>Params: <%=debug(params)%> </p>
+<!-- <p>
   <strong>Address:</strong>
-  <%= @event.address %>
+  <%# @event.address %>
 </p>
 
 <p>
   <strong>Enddate:</strong>
-  <%= @event.endDate %>
+  <%# @event.endDate %>
 </p>
 
 <p>
   <strong>Imagethumburl:</strong>
-  <%= @event.imageThumbUrl %>
+  <%# @event.imageThumbUrl %>
 </p>
 
 <p>
   <strong>Moreinfo:</strong>
-  <%= @event.moreInfo %>
+  <%# @event.moreInfo %>
 </p>
 
 <p>
   <strong>Shortdescription:</strong>
-  <%= @event.shortDescription %>
+  <%# @event.shortDescription %>
 </p>
 
 <p>
   <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+  <%# @event.title %>
+</p> -->
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

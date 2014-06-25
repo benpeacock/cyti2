@@ -6,16 +6,12 @@ class Event < ActiveRecord::Base
   headers['X-Parse-REST-API-Key'] = ENV["PARSE_KEY"]
   # headers["Content-Type"] = "application/json"
 
-  def self.find_by_objectId(objectId)
-  	get(URI.escape("https://api.parse.com/1/classes/Event/#{objectId}"))
+  def self.all
+  	get("https://api.parse.com/1/classes/Event")
   end
-  
- # def self.find_by_title(title)
-  # 	get(URI.escape("https://api.parse.com/1/classes/Event/#{title}"))
-  # end
- 
 
-  # def self.find_by_objectId(objectId)
-  # 	get('https://api.parse.com/1/classes/Event/', :query => { :objectId => objectId })
-  # end
+  def self.find_by_objectId(id)
+  	get(URI.escape("https://api.parse.com/1/classes/Event/#{id}"))
+  end
+
 end 

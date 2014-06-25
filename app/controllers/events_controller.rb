@@ -4,8 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @event = Event.find_by_objectId('kknBHqfwUo')
-    @event2 = Event.find_by_title('Event Title7')
+    @event = Event.all
   end
 
   # GET /events/1
@@ -63,9 +62,9 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # GET from Parse by objectId 
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find_by_objectId(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
