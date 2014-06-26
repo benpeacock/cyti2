@@ -1,41 +1,29 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_tag(method: "patch") do %>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= label_tag(:title, "Title:") %><br>
+    <%= text_field_tag(:title, params["title"]) %>
   </div>
   <div class="field">
-    <%= f.label :endDate %><br>
-    <%= f.date_select :endDate %>
+    <%= label_tag(:address, "Address:") %><br>
+    <%= text_field_tag(:address, params["address"]) %>
   </div>
   <div class="field">
-    <%= f.label :imageThumbUrl %><br>
-    <%= f.text_field :imageThumbUrl %>
+    <%= label_tag(:endDate, "End Date:") %><br>
+    <%= text_field_tag(:endDate, Date.parse(params["endDate"].to_s)) %>
   </div>
   <div class="field">
-    <%= f.label :moreInfo %><br>
-    <%= f.text_field :moreInfo %>
+    <%= label_tag(:imageThumbUrl, "Image Thumb URL:") %><br>
+    <%= text_field_tag(:imageThumbUrl, params["imageThumbUrl"]) %>
   </div>
   <div class="field">
-    <%= f.label :shortDescription %><br>
-    <%= f.text_area :shortDescription %>
+    <%= label_tag(:moreInfo, "More Info:") %><br>
+    <%= text_field_tag(:moreInfo, params["moreInfo"]) %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= label_tag(:shortDescription, "Short Description:") %><br>
+    <%= text_area_tag(:shortDescription, params["shortDescription"]) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag("Submit") %>
   </div>
 <% end %>

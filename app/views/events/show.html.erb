@@ -1,38 +1,29 @@
-<p id="notice"><%= notice %></p>
-<%= @event.inspect %>
-<br />
-<%= @event['address'] %><br />
-<%= @event['objectId'] %>
-<p>Params: <%=debug(params)%> </p>
-<!-- <p>
+<h2><%= @event['title'] %></h2>
+
+<p>
   <strong>Address:</strong>
-  <%# @event.address %>
+  <%= @event['address'] %>
 </p>
 
 <p>
-  <strong>Enddate:</strong>
-  <%# @event.endDate %>
+  <strong>End Date:</strong>
+  <%= Date.parse(@event['endDate'].to_s) %>
 </p>
 
 <p>
-  <strong>Imagethumburl:</strong>
-  <%# @event.imageThumbUrl %>
+  <strong>Image Thumb URL:</strong>
+  <%= @event['imageThumbUrl'] %>
 </p>
 
 <p>
-  <strong>Moreinfo:</strong>
-  <%# @event.moreInfo %>
+  <strong>More Info:</strong>
+  <%= @event['moreInfo'] %>
 </p>
 
 <p>
-  <strong>Shortdescription:</strong>
-  <%# @event.shortDescription %>
+  <strong>Short Description:</strong>
+  <%= @event['shortDescription'] %>
 </p>
-
-<p>
-  <strong>Title:</strong>
-  <%# @event.title %>
-</p> -->
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
