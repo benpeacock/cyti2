@@ -39,17 +39,24 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
+
+  def parse_update
+    Event.update
+  end
+
   def update
-    @event = Event.update
-    # respond_to do |format|
-    #   if @event.update(event_params)
-    #     format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-    #     format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit' }
-    #     format.json { render json: @event.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    #@event = Event.update
+    respond_to do |format|
+      #if @event.update(event_params)
+      #if Event.update(event_params)
+      if Event.update(event_params)
+        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit', notice: 'Event not updated.' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /events/1
@@ -70,6 +77,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:address, :endDate, :imageThumbUrl, :moreInfo, :shortDescription, :title)
+      params.permit(:objectId, :id, :address, :endDate, :imageThumbUrl, :moreInfo, :shortDescription, :title, :utf8, :_method, :authenticity_token, :commit)
     end
 end

@@ -1,4 +1,5 @@
 <%= form_tag(event_path, method: "put") do %>
+  <%= hidden_field_tag(:objectId, params["objectId"]) %>
   <div class="field">
     <%= label_tag(:title, "Title:") %><br>
     <%= text_field_tag(:title, params["title"]) %>
