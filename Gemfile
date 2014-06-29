@@ -56,3 +56,5 @@ gem 'httparty', '~> 0.13.1'
 
 # Use Figaro to hide secrets
 gem 'figaro'
+
+gem 'parse-ruby-client', '~> 0.1.3'
