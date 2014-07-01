@@ -24,7 +24,6 @@
         <td><%= event['shortDescription'] %></td>
         <td><%= link_to 'Show', event_path(event['objectId']) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event_path(event['objectId']), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -27,6 +27,6 @@
     <%= event['shortDescription'] %>
   </p>
 
-<%= link_to 'Edit', edit_event_path(event['objectId']) %> |
+<%= link_to 'Edit', edit_event_path(event['objectId']) %> | <%= link_to 'Destroy', event_path(event['objectId']), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 <%= link_to 'Back', events_path %>

@@ -41,7 +41,8 @@ class Event < ActiveRecord::Base
   end
 
   def self.destroy(objectId)
-    event = Parse::Query.new("Event").eq("objectId", objectId).get.first.parse_delete
+    event = Parse::Query.new("Event").eq("objectId", objectId).get.first
+    event.parse_delete
   end
 
 end 
