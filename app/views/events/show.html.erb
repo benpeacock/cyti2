@@ -1,29 +1,31 @@
-<h2><%= @event['title'] %></h2>
+<% @event.each do |event| %>
+  <h2><%= event['title'] %></h2>
 
-<p>
-  <strong>Address:</strong>
-  <%= @event['address'] %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= event['address'] %>
+  </p>
 
-<p>
-  <strong>End Date:</strong>
-  <%# Date.parse(@event['endDate'].to_s) %>
-</p>
+  <p>
+    <strong>End Date:</strong>
+    <%# Date.parse(event['endDate'].to_s) %>
+  </p>
 
-<p>
-  <strong>Image Thumb URL:</strong>
-  <%= @event['imageThumbUrl'] %>
-</p>
+  <p>
+    <strong>Image Thumb URL:</strong>
+    <%= event['imageThumbUrl'] %>
+  </p>
 
-<p>
-  <strong>More Info:</strong>
-  <%= @event['moreInfo'] %>
-</p>
+  <p>
+    <strong>More Info:</strong>
+    <%= event['moreInfo'] %>
+  </p>
 
-<p>
-  <strong>Short Description:</strong>
-  <%= @event['shortDescription'] %>
-</p>
+  <p>
+    <strong>Short Description:</strong>
+    <%= event['shortDescription'] %>
+  </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <%= link_to 'Edit', edit_event_path(event) %> |
+  <%= link_to 'Back', events_path %>
+<% end %>

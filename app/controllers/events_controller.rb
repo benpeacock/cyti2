@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:edit, :show, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -66,6 +66,7 @@ class EventsController < ApplicationController
   private
     # GET from Parse by objectId 
     def set_event
+      # Using 'id' instead of 'objectId' here since Rails sets objectId passed in params to 'id'
       @event = Event.find_by_objectId(params[:id])
     end
 

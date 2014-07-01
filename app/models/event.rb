@@ -10,14 +10,16 @@ class Event < ActiveRecord::Base
   Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
 
   def self.all
-  	get("https://api.parse.com/1/classes/Event")
+    event = Parse::Query.new("Event").exists("objectId").get
   end
 
-  def self.find_by_objectId(id)
-  	JSON.parse(get(URI.escape("https://api.parse.com/1/classes/Event/#{id}")).body)
+  # Returns an array
+  def self.find_by_objectId(objectId)
+    event = Parse::Query.new("Event").eq("objectId", objectId).get
   end
 
   def self.update(event_params)
+    ## REPLACE STATIC ID VAL WITH VALUE FROM PARAMS
     event = Parse::Query.new("Event").eq("objectId", "kknBHqfwUo").get.first
     event["address"] = event_params[:address]
     event["endDate"] = event_params[:endDate]
