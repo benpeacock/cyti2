@@ -19,8 +19,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.update(event_params)
-    ## REPLACE STATIC ID VAL WITH VALUE FROM PARAMS
-    event = Parse::Query.new("Event").eq("objectId", "kknBHqfwUo").get.first
+    event = Parse::Query.new("Event").eq("objectId", event_params[:objectId]).get.first
     event["address"] = event_params[:address]
     event["endDate"] = event_params[:endDate]
     event["imageThumbUrl"] = event_params[:imageThumbUrl]
@@ -28,6 +27,10 @@ class Event < ActiveRecord::Base
     event["shortDescription"] = event_params[:shortDescription]
     event["title"] = event_params[:title]
     event.save
+  end
+
+  def self.destroy(objectId)
+    event = Parse::Query.new("Event").eq("objectId", objectId).get.first.parse_delete
   end
 
 end 

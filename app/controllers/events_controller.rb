@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @event = Event.all
+    @events = Event.all
   end
 
   # GET /events/1
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
+    Event.destroy(params[:objectId])
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
