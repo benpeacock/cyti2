@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   headers['X-Parse-REST-API-Key'] = ENV["PARSE_KEY"]
   # headers["Content-Type"] = "application/json"
 
-  #Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
+  Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
 
   def initialize(address)
   	self.id = id
@@ -24,10 +24,8 @@ class Event < ActiveRecord::Base
   end
 
   def self.update(event_params)
-    puts 'hello from update method in model'
-    Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
     event = Parse::Query.new("Event").eq("objectId", "kknBHqfwUo").get.first
-    event["address"] = "An even more updated address"
+    event["address"] = "More updated address8"
     result = event.save
     puts result
   end
