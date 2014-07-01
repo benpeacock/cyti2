@@ -9,11 +9,11 @@ class Event < ActiveRecord::Base
 
   Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
 
-  def initialize(address)
-  	self.id = id
-    self.address = address
-    # include other attributes if this works
-  end
+  # def initialize(address)
+  # 	self.id = id
+  #   self.address = address
+  #   # include other attributes if this works
+  # end
 
   def self.all
   	get("https://api.parse.com/1/classes/Event")
@@ -25,7 +25,8 @@ class Event < ActiveRecord::Base
 
   def self.update(event_params)
     event = Parse::Query.new("Event").eq("objectId", "kknBHqfwUo").get.first
-    event["address"] = "More updated address8"
+    event["address"] = "More updated address10"
+    event["imageThumbUrl"] = "http://www.google.com"
     result = event.save
     puts result
   end
