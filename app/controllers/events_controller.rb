@@ -40,25 +40,17 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    puts 'hello from update in controller'
-    puts event_params
     @event = Event.update(event_params)
-    puts 'Event: '
-    @event.inspect
-    
-    puts "Address: #{params[:address]}"
-    
-    # @event = Event.update
-    # respond_to do |format|
-    #   if @event.update(event_params)
-    #   if Event.update(event_params)
-    #     format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-    #     format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit', notice: 'Event not updated.' }
-    #     format.json { render json: @event.errors, status: :unprocessable_entity }
-    #   end
-    # end
+
+    respond_to do |format|
+      if @event
+        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit', notice: 'Event not updated.' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /events/1
