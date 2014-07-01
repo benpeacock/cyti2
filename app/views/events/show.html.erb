@@ -1,4 +1,5 @@
 <% @event.each do |event| %>
+
   <h2><%= event['title'] %></h2>
 
   <p>
@@ -26,6 +27,6 @@
     <%= event['shortDescription'] %>
   </p>
 
-  <%= link_to 'Edit', edit_event_path(event) %> |
-  <%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(event['objectId']) %> |
 <% end %>
+<%= link_to 'Back', events_path %>
