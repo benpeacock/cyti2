@@ -29,6 +29,17 @@ class Event < ActiveRecord::Base
     event.save
   end
 
+    def self.create(event_params)
+    event = Parse::Object.new("Event")
+    event["address"] = event_params[:address]
+    event["endDate"] = event_params[:endDate]
+    event["imageThumbUrl"] = event_params[:imageThumbUrl]
+    event["moreInfo"] = event_params[:moreInfo]
+    event["shortDescription"] = event_params[:shortDescription]
+    event["title"] = event_params[:title]
+    event.save
+  end
+
   def self.destroy(objectId)
     event = Parse::Query.new("Event").eq("objectId", objectId).get.first.parse_delete
   end
