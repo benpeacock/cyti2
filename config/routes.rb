@@ -1,5 +1,9 @@
 Cyti2::Application.routes.draw do
-  resources :events
+  resources :events do
+    member do
+      put 'parse_update'
+    end
+  end
 
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
