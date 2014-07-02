@@ -17,4 +17,9 @@ class User < ActiveRecord::Base
 	def self.find_by_objectId(objectId)
 		user = Parse::Query.new("_User").eq("objectId", objectId).get
 	end
+
+	def self.login(user_params)
+		user = Parse::User.authenticate(user_params[:username], user_params[:password])
+	end
+
 end
