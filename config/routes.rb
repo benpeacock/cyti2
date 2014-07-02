@@ -1,4 +1,6 @@
 Cyti2::Application.routes.draw do
+  resources :users
+
   resources :events do
     member do
       put 'parse_update'
