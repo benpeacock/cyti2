@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cyti2</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Cyti2</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <%# if current_user %>
+      <%= link_to "Log Out", session_path("current"), method: "delete" %>
+    <%# else %>
+      <%= link_to "Sing Up", new_user_path %>
+      <%= link_to "Log In", new_session_path %>
+    <%# end %>
+    <%= session[:sessionToken] %>
+    
     <% if flash[:notice] %>
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -26,5 +35,5 @@
 
 	<%= yield %>
 
-</body>
+  </body>
 </html>

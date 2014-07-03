@@ -61,19 +61,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-    puts 'hello from users#login'
-    respond_to do |format|
-      if @user = User.login(user_params)
-        format.html { redirect_to welcome_index, notice: 'You are logged in.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'login' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
