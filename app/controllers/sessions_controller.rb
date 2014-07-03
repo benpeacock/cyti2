@@ -5,10 +5,6 @@ class SessionsController < ApplicationController
   def create
   	@user = User.login(session_params)
   	if @user
-  		puts 'shazam'
-  		puts @user["username"]
-  		puts @user["sessionToken"]
-  		puts @user["objectId"]
   		session[:sessionToken] = @user["sessionToken"]
   		redirect_to root_url, notice: "Logged in"
   	else
