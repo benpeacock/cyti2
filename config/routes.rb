@@ -1,12 +1,15 @@
 Cyti2::Application.routes.draw do
   resources :sessions
   resources :users
-
   resources :events do
     member do
       put 'parse_update'
     end
   end
+
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  delete 'logout', to: 'sessions#destroy', as 'logout'
 
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
