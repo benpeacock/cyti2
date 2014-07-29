@@ -1,15 +1,13 @@
 <!-- Temp styles in applicaiton.css -->
-<h1>Listing events</h1>
+<h1>All Events</h1>
 <p><%= link_to 'New Event', new_event_path %></p>
 <table>
   <thead>
     <tr>
       <th>Title</th>
       <th>Address</th>
-      <th>Enddate</th>
-      <th>Imagethumburl</th>
-      <th>Moreinfo</th>
-      <th>Shortdescription</th>
+      <th>End Date</th>
+      <th>Short Description</th>
     </tr>
   </thead>
 
@@ -18,9 +16,7 @@
       <tr>
         <td><%= event['title'] %></td>
         <td><%= event['address']%></td>
-        <td><%# event['endDate'] %></td>
-        <td><%= event['imagethumburl'] %></td>
-        <td><%= event['moreinfo'] %></td>
+        <td><%= event['endDate'] ? event['endDate'].value.to_date : nil %></td>
         <td><%= event['shortDescription'] %></td>
         <td><%= link_to 'Show', event_path(event['objectId']) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
