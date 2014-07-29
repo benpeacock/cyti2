@@ -57,4 +57,11 @@ gem 'httparty', '~> 0.13.1'
 # Use Figaro to hide secrets
 gem 'figaro'
 
+# Connect to Parse backend
 gem 'parse-ruby-client', '~> 0.2.0'
+
+# Use bootstrap for styling
+gem 'bootstrap-sass', '~> 3.2.0'
+
+# Helps with bootstrap
+gem 'autoprefixer-rails'
