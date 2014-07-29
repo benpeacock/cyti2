@@ -1,2 +1,12 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Dashboard</h1>
+<h2>My Events</h2>
+<%= link_to 'All Events', events_path %>
+<ul>
+<% @events.each do |event| %>
+  <li>
+    <strong><%= event['title'] %></strong> -
+    <%= link_to 'Show', event_path(event['objectId']) %> |
+    <%= link_to 'Edit', edit_event_path(event) %>
+  </li>
+<% end %>
+</ul>
