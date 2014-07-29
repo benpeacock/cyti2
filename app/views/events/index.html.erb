@@ -1,7 +1,7 @@
 <!-- Temp styles in applicaiton.css -->
 <h1>All Events</h1>
 <p><%= link_to 'New Event', new_event_path %></p>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -19,7 +19,7 @@
         <td><%= event['endDate'] ? event['endDate'].value.to_date : nil %></td>
         <td><%= event['shortDescription'] %></td>
         <td><%= link_to 'Show', event_path(event['objectId']) %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Edit', edit_event_path(event['objectId']) %></td>
       </tr>
     <% end %>
   </tbody>

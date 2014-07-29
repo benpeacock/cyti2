@@ -14,8 +14,3 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-/* Styles for [object]#index tables */
-table, th, td {
-    padding: 15px 15px 15px 15px;
-}

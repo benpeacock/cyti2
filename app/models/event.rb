@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   def self.update(event_params)
     event = Parse::Query.new("Event").eq("objectId", event_params[:objectId]).get.first
     event["address"] = event_params[:address]
-    event["endDate"] = event_params[:endDate]
+    event["endDate"] = Parse::Date.new(event_params[:endDate])
     event["imageThumbUrl"] = event_params[:imageThumbUrl]
     event["moreInfo"] = event_params[:moreInfo]
     event["shortDescription"] = event_params[:shortDescription]
@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
     def self.create(event_params)
     event = Parse::Object.new("Event")
     event["address"] = event_params[:address]
-    event["endDate"] = event_params[:endDate]
+    event["endDate"] = Parse::Date.new(event_params[:endDate])
     event["imageThumbUrl"] = event_params[:imageThumbUrl]
     event["moreInfo"] = event_params[:moreInfo]
     event["shortDescription"] = event_params[:shortDescription]
@@ -45,4 +45,4 @@ class Event < ActiveRecord::Base
     event.parse_delete
   end
 
-end 
+end
