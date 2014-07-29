@@ -9,7 +9,7 @@ vagrant ssh<% @event.each do |event| %>
 
   <p>
     <strong>End Date:</strong>
-    <%# Date.parse(event['endDate'].to_s) %>
+    <%= event['endDate'] ? event['endDate'].value.to_date : nil %>
   </p>
 
   <p>

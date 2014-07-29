@@ -12,7 +12,7 @@
     <div class="field">
       <%= label_tag(:endDate, "End Date:") %><br>
       <%# text_field_tag(:endDate, Date.parse(event["endDate"].to_s)) %>
-      <%= date_field_tag(:endDate) %>
+      <%= text_field_tag(:endDate, event["endDate"] ? event["endDate"].value.to_date : nil) %>
     </div>
     <div class="field">
       <%= label_tag(:imageThumbUrl, "Image Thumb URL:") %><br>
