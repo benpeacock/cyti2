@@ -71,3 +71,6 @@ gem 'jquery-ui-rails'
 
 # Use bootswatch theme for bootstrap
 gem 'bootswatch-rails'
+
+# Fontawesome for icons
+gem 'font-awesome-rails'

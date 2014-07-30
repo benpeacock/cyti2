@@ -23,8 +23,9 @@
         <td><%= event['address']%></td>
         <td><%= event['endDate'] ? event['endDate'].value.to_date : nil %></td>
         <td><%= event['shortDescription'] %></td>
-        <td><%= link_to 'Show', event_path(event['objectId']) %></td>
-        <td><%= link_to 'Edit', edit_event_path(event['objectId']) %></td>
+        <td><%= link_to edit_event_path(event['objectId']) do %>
+          <%= fa_icon "edit", class: "edit-icon" %>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
