@@ -1,11 +1,7 @@
 Cyti2::Application.routes.draw do
   resources :sessions
   resources :users
-  resources :events do
-    member do
-      put 'parse_update'
-    end
-  end
+  resources :events
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
 
   # Use HTTParty to conenct to Parse.com
-  include HTTParty
-  format :json
-  headers['X-Parse-Application-Id'] = ENV["PARSE_APP_ID"]
-  headers['X-Parse-REST-API-Key'] = ENV["PARSE_KEY"]
+  # include HTTParty
+  # format :json
+  # headers['X-Parse-Application-Id'] = ENV["PARSE_APP_ID"]
+  # headers['X-Parse-REST-API-Key'] = ENV["PARSE_KEY"]
   # headers["Content-Type"] = "application/json"
 
   Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
