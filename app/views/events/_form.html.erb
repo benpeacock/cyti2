@@ -1,32 +1,50 @@
-<%= form_tag(event_path, method: 'put') do %>
-  <% @event.each do |event| %>
-    <%= hidden_field_tag(:objectId, event["objectId"]) %>
-    <div class="field">
-      <%= label_tag(:title, "Title:") %><br>
-      <%= text_field_tag(:title, event["title"]) %>
-    </div>
-    <div class="field">
-      <%= label_tag(:address, "Address:") %><br>
-      <%= text_field_tag(:address, event["address"]) %>
-    </div>
-    <div class="field">
-      <%= label_tag(:endDate, "End Date:") %><br>
-      <%= text_field_tag(:endDate, event["endDate"] ? event["endDate"].value.to_date : nil) %>
-    </div>
-    <div class="field">
-      <%= label_tag(:imageThumbUrl, "Image Thumb URL:") %><br>
-      <%= text_field_tag(:imageThumbUrl, event["imageThumbUrl"]) %>
-    </div>
-    <div class="field">
-      <%= label_tag(:moreInfo, "More Info:") %><br>
-      <%= text_field_tag(:moreInfo, event["moreInfo"]) %>
-    </div>
-    <div class="field">
-      <%= label_tag(:shortDescription, "Short Description:") %><br>
-      <%= text_area_tag(:shortDescription, event["shortDescription"]) %>
-    </div>
-    <div class="actions">
-      <%= submit_tag("Submit") %>
-    </div>
-  <% end %>
+<%= form_tag(event_path, method: 'put', :class => "form-horizontal")  do %>
+  <fieldset>
+    <% @event.each do |event| %>
+      <%= hidden_field_tag(:objectId, event["objectId"]) %>
+
+      <div class="form-group">
+        <%= label_tag(:title, "Title:", :class => "col-lg-2 control-label") %>
+        <div class="col-lg-10">
+          <%= text_field_tag(:title, event["title"], :class => "form-control") %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:address, "Address:", :class => "col-lg-2 control-label") %>
+        <div class="col-lg-10">
+          <%= text_field_tag(:address, event["address"], :class => "form-control") %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:endDate, "End Date:", :class => "col-lg-2 control-label") %>
+        <div class="col-lg-10">
+          <%= text_field_tag(:endDate, event["endDate"] ? event["endDate"].value.to_date : nil, :class => "form-control") %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:imageThumbUrl, "Image Thumb URL:", :class => "col-lg-2 control-label") %>
+        <div class="col-lg-10">
+          <%= text_field_tag(:imageThumbUrl, event["imageThumbUrl"], :class => "form-control") %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:moreInfo, "More Info:", :class => "col-lg-2 control-label") %>
+        <div class="col-lg-10">
+          <%= text_field_tag(:moreInfo, event["moreInfo"], :class => "form-control") %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:shortDescription, "Short Description:", :class => "col-lg-2 control-label") %>
+        <div class="col-lg-10">
+          <%= text_area_tag(:shortDescription, event["shortDescription"], :class => "form-control") %>
+        </div>
+      </div>
+    <% end %>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button href="<%= events_path %>" class="btn btn-default">Cancel</button>
+          <%= submit_tag("Submit", :class => "btn btn-primary") %>
+        </div>
+      </div>
+  </fieldset>
 <% end %>
