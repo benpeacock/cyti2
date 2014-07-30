@@ -65,3 +65,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 # Helps with bootstrap
 gem 'autoprefixer-rails'
+
+# Add jquery-ui for datepicker
+gem 'jquery-ui-rails'
