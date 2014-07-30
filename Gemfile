@@ -68,3 +68,6 @@ gem 'autoprefixer-rails'
 
 # Add jquery-ui for datepicker
 gem 'jquery-ui-rails'
+
+# Use bootswatch theme for bootstrap
+gem 'bootswatch-rails'
