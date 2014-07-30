@@ -28,3 +28,22 @@ body { padding-top: 60px; }
 
 // And finally bootswatch style itself
 @import "bootswatch/flatly/bootswatch";
+
+/* ######### CUSTOM STYLES ########### */
+
+.navbar {
+  background-color: #000000;
+}
+
+.moveup13 {
+  margin-top: -13px;
+}
+
+.movedown25 {
+  margin-top: 25px;
+}
+
+.new-record-button {
+  background-color: #33cc99;
+  float: right;
+}
