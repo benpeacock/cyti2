@@ -1,33 +1,49 @@
 <h1>New event</h1>
 
-<%= form_tag(events_path, method: 'post') do %>
-    <div class="field">
-      <%= label_tag(:title, "Title:") %><br>
-      <%= text_field_tag(:title) %>
+<%= form_tag(events_path, method: 'post', :class => "form-horizontal") do %>
+  <fieldset>
+    <div class="form-group">
+      <%= label_tag(:title, "Title:", :class => "col-lg-2 control-label") %>
+      <div class="col-lg-10">
+        <%= text_field_tag(:title, nil, :placeholder => 'Title', :class => "form-control") %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag(:address, "Address:") %><br>
-      <%= text_field_tag(:address) %>
+
+    <div class="form-group">
+      <%= label_tag(:address, "Address:", :class => "col-lg-2 control-label") %>
+      <div class="col-lg-10">
+        <%= text_field_tag(:address, nil, :placeholder => 'Address', :class => "form-control") %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag(:endDate, "End Date:") %><br>
-      <%= text_field_tag(:endDate) %>
+
+    <div class="form-group">
+      <%= label_tag(:endDate, "End Date:", :class => "col-lg-2 control-label") %>
+      <div class="col-lg-10">
+        <%= text_field_tag(:endDate, nil, :placeholder => 'End Date', :class => "form-control") %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag(:imageThumbUrl, "Image Thumb URL:") %><br>
-      <%= text_field_tag(:imageThumbUrl) %>
+
+    <div class="form-group">
+      <%= label_tag(:moreInfo, "More Info:", :class => "col-lg-2 control-label") %>
+      <div class="col-lg-10">
+        <%= text_field_tag(:moreInfo, nil, :placeholder => 'More Info', :class => "form-control") %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag(:moreInfo, "More Info:") %><br>
-      <%= text_field_tag(:moreInfo) %>
+
+    <div class="form-group">
+      <%= label_tag(:shortDescription, "Short Description:", :class => "col-lg-2 control-label") %>
+      <div class="col-lg-10">
+        <%= text_area_tag(:shortDescription, nil, :placeholder => 'Short Description', :class => "form-control") %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag(:shortDescription, "Short Description:") %><br>
-      <%= text_area_tag(:shortDescription) %>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <%= submit_tag("Submit", :class => "btn btn-primary") %>
+      </div>
     </div>
-    <div class="actions">
-      <%= submit_tag("Submit") %>
-    </div>
-  <% end %>
+
+  </fieldset>
+<% end %>
 
 <%= link_to 'Back', events_path %>

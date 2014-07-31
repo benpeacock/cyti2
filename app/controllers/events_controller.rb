@@ -1,15 +1,10 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :show, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
-  end
-
-  # GET /events/1
-  # GET /events/1.json
-  def show
   end
 
   # GET /events/new
@@ -28,7 +23,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
         format.html { render action: 'new' }
@@ -44,7 +39,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit', notice: 'Event not updated.' }
@@ -65,7 +60,7 @@ class EventsController < ApplicationController
   end
 
   private
-    # GET from Parse by objectId 
+    # GET from Parse by objectId
     def set_event
       # Using 'id' instead of 'objectId' here since Rails sets objectId passed in params to 'id'
       @event = Event.find_by_objectId(params[:id])

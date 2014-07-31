@@ -1,9 +1,33 @@
 <h1>Dashboard</h1>
-<h3>My Events</h3>
-<ul>
-<% @events.each do |event| %>
-  <li>
-    <%= link_to event['title'], event_path(event['objectId']) %>
-  </li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="col-lg-4">
+    <h3>My Events</h3>
+    <ul>
+      <% @events.each do |event| %>
+        <li>
+          <%= link_to event['title'], event_path(event['objectId']) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-4">
+    <h3>My Issues</h3>
+    <ul>
+      <% @events.each do |event| %>
+        <li>
+          <%= link_to event['title'], event_path(event['objectId']) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-4">
+    <h3>My News</h3>
+    <ul>
+      <% @events.each do |event| %>
+        <li>
+          <%= link_to event['title'], event_path(event['objectId']) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
