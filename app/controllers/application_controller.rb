@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
   end
   # make current_user method accessible in views
   helper_method :current_user
+
+  def authorize
+    redirect_to login_url, alert: "Not logged in" if current_user.nil?
+  end
+
 end
