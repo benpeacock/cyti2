@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /events/new

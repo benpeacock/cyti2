@@ -74,3 +74,6 @@ gem 'bootswatch-rails'
 
 # Fontawesome for icons
 gem 'font-awesome-rails'
+
+# Use will paginate to paginate record lists on index pages
+gem 'will_paginate', '~> 3.0'
