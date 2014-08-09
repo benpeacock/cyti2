@@ -36,7 +36,9 @@
     <% end %>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-          <button href="<%= events_path %>" class="btn btn-default">Cancel</button>
+          <%= link_to events_path, class: 'btn btn-default cancel lineup',  :confirm => 'Cancel without saving?' do %>
+          Cancel
+          <% end %>
           <%= submit_tag("Submit", :class => "btn btn-primary") %>
         </div>
       </div>
