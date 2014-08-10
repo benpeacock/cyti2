@@ -13,6 +13,16 @@ class Event < ActiveRecord::Base
     event = Parse::Query.new("Event").exists("objectId").get
   end
 
+  def self.ordered(sort_type)
+    event = Parse::Query.new("Event").tap do |q|
+      q.order_by = sort_type
+    end.get
+  end
+
+  # def self.search(keyword)
+  #   event = Parse::Query.new("Event").eq("title", keyword).get
+  # end
+
   # Returns an array
   def self.find_by_objectId(objectId)
     event = Parse::Query.new("Event").eq("objectId", objectId).get
