@@ -15,10 +15,10 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th><%= link_to "Title", :sort => "title" %></th>
-      <th><%= link_to "Address", :sort => "address" %></th>
-      <th><%= link_to "End Date", :sort => "endDate" %></th>
-      <th><%= link_to "Short Description", :sort => "shortDescription" %></th>
+      <th><%= sortable "Title" %></th>
+      <th><%= sortable "Address" %></th>
+      <th><%= sortable "endDate", "End Date" %></th>
+      <th><%= sortable "shortDescription", "Short Description" %></th>
     </tr>
   </thead>
 

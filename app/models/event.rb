@@ -13,9 +13,13 @@ class Event < ActiveRecord::Base
     event = Parse::Query.new("Event").exists("objectId").get
   end
 
-  def self.ordered(sort_type)
+  def self.ordered(direction, sort_type)
     event = Parse::Query.new("Event").tap do |q|
-      q.order_by = sort_type
+      if direction == "descending"
+        q.order_by = "-" + sort_type
+      else
+        q.order_by = sort_type
+      end
     end.get
   end
 
