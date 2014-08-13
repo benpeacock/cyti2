@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.ordered(params[:direction], params[:sort]).paginate(:per_page => 10, :page => params[:page])
+    @user = User.get_user(session[:sessionToken])
     #@events = Event.all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end
 

@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
 
   Parse.init :application_id => ENV["PARSE_APP_ID"], :api_key => ENV["PARSE_KEY"]
 
+  # Switched from this method to 'ordered'.  Can probably delete this.
   def self.all
     event = Parse::Query.new("Event").exists("objectId").get
   end

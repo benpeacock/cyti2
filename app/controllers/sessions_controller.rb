@@ -1,4 +1,12 @@
 class SessionsController < ApplicationController
+
+  include HTTParty
+  format :json
+  headers['X-Parse-Application-Id'] = ENV["PARSE_APP_ID"]
+  headers['X-Parse-REST-API-Key'] = ENV["PARSE_KEY"]
+  headers['X-Parse-Session-Token'] = session[:sessionToken]
+  headers["Content-Type"] = "application/json"
+
   def new
   end
 
@@ -21,7 +29,11 @@ class SessionsController < ApplicationController
 
   private
 
+#def get_user(sessionToken)
+  #  @user = HTTParty.get('https://api.parse.com/1/users/me')
+#  end
+
   def session_params
       params.permit(:username, :password)
-    end
+  end
 end

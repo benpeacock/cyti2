@@ -12,6 +12,11 @@
     <%# submit_tag "Search", :name => nil %>
   </p> -->
 <%# end %>
+
+<%= session[:sessionToken]%>
+<br />
+<%= @user.inspect %>
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>

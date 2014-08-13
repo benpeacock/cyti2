@@ -3,17 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # Use HTTParty to conenct to Parse.com
+  include HTTParty
+  format :json
+  headers['X-Parse-Application-Id'] = ENV["PARSE_APP_ID"]
+  headers['X-Parse-REST-API-Key'] = ENV["PARSE_KEY"]
+  headers['X-Parse-Session-Token'] = "session[:sessionToken]"
+  headers["Content-Type"] = "application/json"
+
   private
 
-  # check for session[:sessionToken] in views
-  def current_user
-  	@current_user ||= User.find(session[:sessionToken]) if session[:sessionToken]
-  end
-  # make current_user method accessible in views
-  helper_method :current_user
-
   def authorize
-    redirect_to login_url, alert: "Not logged in" if current_user.nil?
+    redirect_to login_url, alert: "Not logged in" if session[:sessionToken].nil?
   end
 
 end
